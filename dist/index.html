@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <link rel="stylesheet" href="./output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-no-repeat bg-cover bg-center h-fit font-suse" style="background-image: url(images/bg-img.jpg);">
+
+    <!-- Login & sing up section start -->
+    <main class="h-screen w-full flex justify-center items-center" id="sing-in-section">
+
+        <section
+            class="w-full md:w-[768px] h-screen md:h-auto text-white tracking-wider flex flex-col md:grid md:grid-cols-2 md:rounded-lg">
+
+            <!-- left section -->
+            <section class="flex flex-col items-center md:space-y-8 md:rounded-l-lg p-5 md:p-10 bg-secondary/70">
+                <h1 class="text-xl xs:text-2xl font-normal">Wellcome to,</h1>
+                <div
+                    class=" w-[100px] h-[100px] xs:w-[150px] xs:h-[150px] p-2 border-4 border-[#F2247C] rounded-full z-0 flex flex-col items-center justify-center my-2">
+                    <p class="text-xs">Flower Bank</p>
+                    <img src="images/bank5.png" class="z-20 w-[100px]  xs:w-[150px]">
+                </div>
+
+                <h2 class="text-xl xs:text-2xl font-normal text-center">Let't set up your bank account!</h2>
+                <p class="text-center text-white/50">Your money is safe with us! Don't worry <br class="md:hidden"> it
+                    shoud take a couple
+                    of miniutes
+                </p>
+
+            </section>
+
+
+            <!-- login section -->
+            <form class="hidden p-5 md:p-10 flex flex-col items-center space-y-4 md:space-y-8 bg-primary rounded-r-md"
+                id="login-form">
+                <p class="text-2xl font-normal">Login Your Account</p>
+
+                <div class="flex flex-col space-y-2 w-full email">
+                    <label class="text-sm font-light cursor-pointer" for="login-email">Email</label>
+                    <input
+                        class="cursor-pointer w-full bg-secondary focus:outline-none border-none px-3 py-2 rounded-md"
+                        type="text" id="login-email" placeholder="Enter your email" autocomplete="off">
+                </div>
+
+                <div class="flex flex-col space-y-2 w-full password">
+                    <label class="text-sm font-light cursor-pointer" for="login-password">Password</label>
+                    <div class="flex justify-between items-center rounded-md cursor-pointer w-full bg-secondary">
+                        <input class="w-full bg-transparent focus:outline-none border-none px-3 py-2 rounded-md"
+                            type="password" id="login-password" placeholder="Enter your password" autocomplete="off">
+                        <i class="fa-regular fa-eye pr-2" onclick="showPassword(this)"></i>
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-2 w-full">
+
+                    <div class="flex space-x-2" id="remember-section">
+                        <input type="checkbox" id="passwordAutoFill">
+                        <label for="passwordAutoFill">Remember me</label>
+                    </div>
+
+                    <button class="w-full bg-secondary font-bold px-7 py-1 xs:py-3 rounded-md">Login</button>
+                </div>
+            </form>
+
+            <!--sing up  section  -->
+            <form class="p-5 md:p-10 flex flex-col items-center space-y-4 md:space-y-8 bg-primary rounded-r-md"
+                id="singup-form">
+                <p class="text-2xl font-normal">Create an account</p>
+
+                <div class="flex flex-col space-y-2 w-full name">
+                    <label class="text-sm font-light cursor-pointer" for="singup-name">Name</label>
+                    <input
+                        class="cursor-pointer w-full bg-secondary  focus:outline-none border-none px-3 py-2 rounded-md"
+                        type="text" id="singup-name" placeholder="Enter your name" autocomplete="off">
+                </div>
+
+                <div class="flex flex-col space-y-2 w-full email">
+                    <label class="text-sm font-light cursor-pointer" for="email">Email</label>
+                    <input
+                        class="cursor-pointer w-full bg-secondary  focus:outline-none border-none px-3 py-2 rounded-md"
+                        type="text" id="email" placeholder="Enter your email" autocomplete="off">
+                </div>
+
+                <div class="flex flex-col space-y-2 w-full password">
+                    <label class="text-sm font-light cursor-pointer" for="password">Password</label>
+                    <div class="flex justify-between items-center rounded-md cursor-pointer w-full bg-secondary">
+                        <input class="w-full bg-transparent focus:outline-none border-none px-3 py-2 rounded-md"
+                            type="password" id="password" placeholder="Enter your password" autocomplete="off">
+                        <i class="fa-regular fa-eye pr-2" onclick="showPassword(this)"></i>
+                    </div>
+                </div>
+
+                <button class="w-full bg-secondary font-bold px-7 py-1 xs:py-3 rounded-md">Sign Up</button>
+
+            </form>
+
+        </section>
+    </main>
+    <!-- Login & sing up section end -->
+
+    <section id="main-page" class="hidden">
+
+        <!-- menu bar section start -->
+        <section class="absolute top-0 -left-full md:left-0 transition-all  duration-500 z-40" id="menu-bar">
+            <div
+                class="flex flex-col h-screen w-40 bg-secondary justify-center items-center space-y-8 text-white relative">
+
+                <div
+                    class=" border-[#F2247C] h-[100px] w-[100px] rounded-full z-0 flex flex-col items-center justify-center my-2 absolute top-5 left-1/2 -translate-x-1/2 border-2">
+                    <p class="text-xs">Flower Bank</p>
+
+                    <img src="images/bank5.png" class="z-20 w-[100px]  xs:w-[80px]">
+                </div>
+
+                <div class="group relative cursor-pointer">
+                    <i class="fa-solid fa-house hover:text-white/50" onclick="changePage('home-page')"></i>
+                    <p
+                        class="absolute top-1 -right-14 hidden group-hover:block text-xs bg-gray-600 px-2 py-1 rounded-md">
+                        Home</p>
+                </div>
+
+
+
+                <div class="group relative cursor-pointer">
+                    <i class="fa-solid fa-clock-rotate-left hover:text-white/50" onclick="changePage('history-page')">
+                    </i>
+                    <p
+                        class="absolute top-1 -right-14 hidden group-hover:block text-xs bg-gray-600 px-2 py-1 rounded-md">
+                        History</p>
+                </div>
+
+
+                <div class="group relative cursor-pointer">
+                    <i class="fa-solid fa-gear hover:text-white/50" onclick="changePage('profile-page')"></i>
+                    <p
+                        class="absolute top-1 -right-14 hidden group-hover:block text-xs bg-gray-600 px-2 py-1 rounded-md">
+                        Setting</p>
+                </div>
+
+
+                <div class="group relative cursor-pointer">
+                    <i class="fa-solid fa-headset hover:text-white/50"> </i>
+                    <p
+                        class="absolute top-1 -right-[68px] hidden group-hover:block text-xs bg-gray-600 px-2 py-1 rounded-md">
+                        Help Line</p>
+                </div>
+
+                <div class=" md:hidden">
+
+                    <i class="fa-solid fa-arrow-left-long absolute bottom-14 lef1/2 -translate-x-1/2 bg-white text-primary p-3 rounded-md text-lg cursor-pointer"
+                        onclick="closeMenu()"></i>
+                </div>
+
+            </div>
+        </section>
+        <!-- menu bar section end -->
+
+
+        <!-- dashboard section start -->
+        <section class="md:ml-40 text-white relative h-screen">
+
+            <!-- navbar section start -->
+            <nav class="px-4 md:px-0 md:w-4/5 mx-auto">
+                <div class="flex justify-between items-center py-5">
+
+                    <div class="flex space-x-5 items-center">
+                        <div class="md:hidden">
+                            <i class="fa-solid fa-bars cursor-pointer text-2xl" onclick="openMenu()"></i>
+                        </div>
+                        <p class="text-base sm:text-xl text-[#ffffff] font-medium">Your Dashboard</p>
+                    </div>
+                    <div class="flex space-x-5  items-center">
+                        <p class="text-base sm:text-lg font-semibold">Total Balance $ <span id="main-balance">000</span>
+                        </p>
+                        <!--  <i class="fa-regular fa-circle-user text-2xl sm:text-5xl text-gray-500"></i>-->
+
+                        <img src="images/profile.png" class="h-12">
+
+                    </div>
+                </div>
+            </nav>
+            <!-- navbar section end -->
+
+            <!-- Home section start -->
+            <section id="home-page">
+
+                <!-- all balance section start -->
+                <section
+                    class="grid sm:grid-cols-3 xl:w-4/5 mx-auto gap-5 xl:gap-10 md:my-20 px-3 xl:px-0 max-w-[1000px]">
+
+                    <div class="flex justify-between items-center bg-primary p-3 lg:p-6 xl:p-10 rounded-md">
+                        <div class="flex flex-col space-y-2">
+                            <p class="text-lg lg:text-xl xl:text-xl">Total Deposit</p>
+                            <p class="text-lg lg:text-xl xl:text-2xl">$ <span id="deposit">000</span></p>
+                        </div>
+                        <i class="fa-solid fa-hand-holding-dollar text-2xl xl:text-4xl"></i>
+                    </div>
+
+                    <div class="flex justify-between items-center bg-primary p-3 lg:p-6 xl:p-10 rounded-md">
+                        <div class="flex flex-col space-y-2">
+                            <p class="text-lg lg:text-xl xl:text-xl">Total Withdraw</p>
+                            <p class="text-lg lg:text-xl xl:text-2xl">$ <span id="withdraw">000</span></p>
+                        </div>
+                        <i class="fa-solid fa-money-bill-transfer text-2xl xl:text-4xl"></i>
+                    </div>
+
+                    <div class="flex justify-between items-center bg-primary p-3 lg:p-6 xl:p-10 rounded-md">
+                        <div class="flex flex-col space-y-2">
+                            <p class="text-lg lg:text-xl xl:text-xl">Total Balance</p>
+                            <p class="text-lg lg:text-xl xl:text-2xl">$ <span id="balance">000</span></p>
+                        </div>
+                        <i class="fa-solid fa-coins text-2xl xl:text-4xl"></i>
+                    </div>
+
+                </section>
+                <!-- all balance section end -->
+
+
+                <!-- Deposit and Withdraw section start -->
+                <section class="absolute bottom-5 left-1/2 -translate-x-1/2 w-full">
+
+                    <div class="px-3 sm:hidden">
+                        <select class="w-full rounded-md bg- bg-primary/70  p-2 mb-2 focus:outline-none sm:hidden"
+                            id="change-option">
+                            <option class="bg-secondary" value="deposit">Deposit</option>
+                            <option class="bg-secondary" value="withdraw">Withdraw</option>
+                        </select>
+                    </div>
+
+
+                    <section class="flex flex-col sm:flex-row gap-10 sm:gap-10 justify-center lg:gap-20 w-full px-3">
+                        <!-- Deposit -->
+                        <form
+                            class="flex flex-col space-y-5 w-full sm:w-[270px]  md:w-[300px] bg-secondary/70 p-5 rounded-md"
+                            id="deposit-section">
+                            <p class="text-xl">Deposit</p>
+
+                            <input
+                                class="cursor-pointer w-full bg-secondary focus:outline-none px-3 py-2 rounded-md border border-white/50"
+                                type="number" placeholder="Deposit Ammount" autocomplete="off" min="20" max="20000">
+
+                            <button type="submit"
+                                class="bg-green-600 py-2 rounded-md font-medium w-full">Deposit</button>
+                        </form>
+
+                        <!-- Withdraw -->
+                        <form
+                            class="flex flex-col space-y-5 w-full sm:w-[270px]  md:w-[300px] bg-secondary/70 p-5 rounded-md"
+                            id="withdraw-section">
+                            <p class="text-xl">Withdraw</p>
+
+                            <input
+                                class="cursor-pointer w-full bg-secondary focus:outline-none px-3 py-2 rounded-md border border-white/50"
+                                type="number" placeholder="Withdraw Ammount" autocomplete="off" min="20" max="20000">
+
+                            <button type="submit"
+                                class="bg-red-600 py-2 rounded-md font-medium w-full">Withdraw</button>
+                        </form>
+                    </section>
+                </section>
+                <!-- Deposit and Withdraw section start -->
+
+            </section>
+            <!-- Home section end -->
+
+            <!-- profile section start -->
+            <section class="px-3 max-w-[1000px] mx-auto md:mt-32 w-full hidden" id="profile-page">
+                <div class="grid grid-cols-1 md:grid-cols-12 w-full bg-secondary/70 border border-white rounded-md">
+                    <!-- button secion -->
+                    <div class="flex flex-col md:gap-5 bg-secondary p-10 col-span-5">
+                        <div class="flex flex-col justify-center items-center mb-7 md:mb-0">
+                            <img src="images/profile.png" class="w-14">
+                            <p class="text-2xl" id="user-name">Hamim</p>
+                        </div>
+
+                        <div class="flex gap-3 items-center cursor-pointer"
+                            onclick="changeSection('profile-information-section')">
+                            <i class="fa-regular fa-address-card w-8"></i>
+                            <p class="text-lg">Profile</p>
+                        </div>
+
+                        <div class="flex gap-3 items-center cursor-pointer"
+                            onclick="changeSection('change-password-section')">
+                            <i class="fa-solid fa-lock w-8"></i>
+                            <p class="text-lg">Password</p>
+                        </div>
+
+                        <div class="flex gap-3 items-center cursor-pointer" onclick="logoutPopup()">
+                            <i class="fa-solid fa-power-off w-8"></i>
+                            <p class="text-lg">Logout</p>
+                        </div>
+                    </div>
+
+                    <!-- view section -->
+                    <section class="p-10 md:col-span-7 ">
+                        <p class="text-2xl border-b-2 border-white pb-1 w-fit mx-auto mb-5">Account setting</p>
+
+                        <!-- Personal information -->
+                        <section id="profile-information-section">
+                            <form class="flex flex-col gap-3" id="personal-information">
+                                <p class="text-xl"> Personal Information</p>
+
+                                <input class="w-full bg-secondary focus:outline-none border-none px-3 py-2 rounded-md"
+                                    type="text" value="Hamim" autocomplete="off" id="user-name2">
+
+                                <input class="w-full bg-secondary focus:outline-none border-none px-3 py-2 rounded-md"
+                                    type="text" value="example@gmail.com" autocomplete="off" readonly id="user-email">
+
+                                <input class="w-full bg-secondary focus:outline-none border-none px-3 py-2 rounded-md"
+                                    type="text" value="" autocomplete="off" id="unique-name">
+
+                                <button type="submit" class="bg-green-600 py-2 px-5 rounded-md font-medium w-fit">Save
+                                    Change</button>
+
+                            </form>
+                        </section>
+
+
+                        <!-- change password information -->
+                        <section class="hidden" id="change-password-section">
+                            <form class="flex flex-col gap-3" id="change-password-form">
+                                <p class="text-xl"> Change Password Ionformation</p>
+
+                                <div
+                                    class="flex justify-between items-center rounded-md cursor-pointer w-full bg-secondary old-pass">
+                                    <input
+                                        class="w-full bg-transparent focus:outline-none border-none px-3 py-2 rounded-md"
+                                        type="password" placeholder="Old Password*" autocomplete="off">
+                                    <i class="fa-regular fa-eye pr-2" onclick="showPassword(this)"></i>
+                                </div>
+
+                                <div
+                                    class="flex justify-between items-center rounded-md cursor-pointer w-full bg-secondary  new-pass">
+                                    <input
+                                        class="w-full bg-transparent focus:outline-none border-none px-3 py-2 rounded-md"
+                                        type="password" placeholder="New Password*" autocomplete="off">
+                                    <i class="fa-regular fa-eye pr-2" onclick="showPassword(this)"></i>
+                                </div>
+
+                                <div
+                                    class="flex justify-between items-center rounded-md cursor-pointer w-full bg-secondary new-pass2">
+                                    <input
+                                        class="w-full bg-transparent focus:outline-none border-none px-3 py-2 rounded-md"
+                                        type="password" placeholder="Retype Password*" autocomplete="off">
+                                    <i class="fa-regular fa-eye pr-2" onclick="showPassword(this)"></i>
+                                </div>
+
+                                <button type="submit" class="bg-green-600 py-2 px-5 rounded-md font-medium w-fit">Save
+                                    Change</button>
+
+                            </form>
+                        </section>
+
+
+
+
+                    </section>
+
+                </div>
+            </section>
+            <!-- profile section end -->
+
+
+
+            <!-- transaction history section start -->
+            <section class="px-3 max-h-[80vh] overflow-auto max-w-[1000px] mx-auto mt-10 w-full hidden"
+                id="history-page">
+                <div class="flex flex-col gap-5  w-full bg-secondary/70 border border-white rounded-md relative pb-5">
+                    <div class="flex flex-col gap-5 sticky top-0 left-0 bg-secondary">
+                        <P class="py-5 text-center rounded-t-md text-lg font-medium">Transaction History</P>
+
+                        <ul class="flex justify-around border-b-2 border-white pb-2">
+                            <li class="w-1/3 text-center">Date</li>
+                            <li class="w-1/3 text-center">Description</li>
+                            <li class="w-1/3 text-center">Ammount</li>
+                        </ul>
+                    </div>
+                    <!-- <ul class="flex justify-around">
+                        <li class="w-1/3 text-center">12/08/2024</li>
+                        <li class="w-1/3 text-center">withdraw</li>
+                        <li class="w-1/3 text-center">$500</li>
+                    </ul>
+                    <ul class="flex justify-around">
+                        <li class="w-1/3 text-center">12/08/2024</li>
+                        <li class="w-1/3 text-center">Deposit</li>
+                        <li class="w-1/3 text-center">$2000</li>
+                    </ul>
+                    <ul class="flex justify-around">
+                        <li class="w-1/3 text-center">12/08/2024</li>
+                        <li class="w-1/3 text-center">Withdraw</li>
+                        <li class="w-1/3 text-center">$5000</li>
+                    </ul> -->
+
+                    <div class="flex flex-col gap-5" id="history-section">
+                        <p class="text-2xl font-medium text-center py-5" id="emty-history-message">You have no
+                            transaction
+                            history !</p>
+                    </div>
+                </div>
+            </section>
+            <!-- transaction history section end -->
+
+        </section>
+        <!-- dashboard section end -->
+
+
+    </section>
+
+
+    <!-- error message -->
+    <div class="bg-red-500 px-5 py-3 rounded-md absolute -top-full left-1/2 -translate-x-1/2 text-white font-medium transition-all duration-500 z-[100]"
+        id="error-message">
+    </div>
+    <!-- error message -->
+
+
+    <!-- log out popup start-->
+    <div class="absolute top-0 left-0 z-50 flex justify-center items-center bg-black/60 h-screen w-full text-white px-3 xs:px-0 hidden"
+        id="logout-popup">
+        <div class="flex flex-col space-y-5 w-full xs:w-[400px] sm:w-[500px] bg-gray-700 rounded-md p-7">
+            <p class="text-xl font-semibold">Log out comfirmation</p>
+            <p class="text-base">Are you sure you want to log out?</p>
+
+            <div class="flex space-x-5">
+                <button class="bg-green-600 hover:bg-green-700 py-2 rounded-md font-medium w-1/2"
+                    onclick="logout()">Yes</button>
+                <button class="bg-red-600 hover:bg-red-700 py-2 rounded-md font-medium w-1/2"
+                    onclick="logoutPopup()">No</button>
+            </div>
+        </div>
+    </div>
+    <!-- log out popup end-->
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
