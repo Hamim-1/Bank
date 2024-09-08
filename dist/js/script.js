@@ -24,12 +24,45 @@ const mainBalance = document.getElementById('main-balance');
 const pages = ['home-page', 'history-page', 'profile-page'];
 const sections = ['profile-information-section', 'change-password-section'];
 
+const animationSection = document.getElementById('animationSection');
 
+
+function animation() {
+    animationSection.classList.remove('hidden');
+
+    setTimeout(() => {
+        animationSection.classList.add('opacity-80');
+    }, 100);
+    setTimeout(() => {
+        animationSection.classList.remove('opacity-80');
+        animationSection.classList.add('opacity-60');
+    }, 200);
+    setTimeout(() => {
+        animationSection.classList.remove('opacity-60');
+        animationSection.classList.add('opacity-40');
+    }, 300);
+    setTimeout(() => {
+        animationSection.classList.remove('opacity-40');
+        animationSection.classList.add('opacity-20');
+    }, 400);
+    setTimeout(() => {
+        animationSection.classList.remove('opacity-20');
+        animationSection.classList.add('opacity-0');
+    }, 500);
+    setTimeout(() => {
+        animationSection.classList.remove('opacity-0');
+        animationSection.classList.add('opacity-100');
+        animationSection.classList.add('hidden');
+    }, 600);
+
+
+}
 
 function changePage(pageId) {
     pages.forEach(page => {
 
         if (pageId === page) {
+            animation();
             document.getElementById(page).style.display = 'block';
         } else {
             document.getElementById(page).style.display = 'none';
@@ -41,7 +74,7 @@ function changePage(pageId) {
 
 function changeSection(sectionId) {
     sections.forEach(section => {
-
+        animation();
         if (sectionId === section) {
             document.getElementById(section).style.display = 'block';
         } else {
@@ -369,6 +402,7 @@ function loginAccount(e) {
     const userPassword = e.target.querySelector('.password input').value.trim();
 
     if (userEmail === user.email && userPassword === user.password) {
+        animation();
         mainPage.style.display = 'block';
         singInSection.style.display = 'none';
         rememberIdPass();
